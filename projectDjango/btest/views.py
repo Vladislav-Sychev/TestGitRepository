@@ -8,5 +8,7 @@ from .models import *
 
 def index(request):
     bbs = Bb.objects.all()
-    return render(request, "btest/index.html", {'bbs': bbs})
+    rs = Rubric.objects.all()
+    return render(request, "btest/index.html", {'bbs': bbs, 'rs': rs})
+
 
