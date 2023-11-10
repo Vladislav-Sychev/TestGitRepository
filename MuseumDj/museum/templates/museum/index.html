@@ -1,9 +1,13 @@
-{% extends 'base.html' %}
-{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    {% load bootstrap5 %}
 	{% bootstrap_javascript %}
 	{% bootstrap_css %}
-
-{% block content %}
+	<title>Главная - Доска объявлений</title>
+</head>
+<body>
 <h1>Музей</h1>
 <h2>Список экспонатов</h2>
 <table>
@@ -60,3 +64,5 @@
     {% endfor %}
 </ul>
 {% endblock %}
+</body>
+</html>
