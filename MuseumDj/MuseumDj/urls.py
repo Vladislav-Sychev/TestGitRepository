@@ -19,7 +19,7 @@ from django.urls import path, include
 from museum import views
 
 urlpatterns = [
-    #path('', views.index),
+    path('', views.index),
     path('admin/', admin.site.urls),
     path('museum/', include('museum.urls'))
 ]
