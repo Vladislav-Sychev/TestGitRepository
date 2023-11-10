@@ -34,7 +34,7 @@ class Exhibit(models.Model):
     description = models.TextField(verbose_name='Краткое описание') 
     value = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Страховая стоимость') 
     century = models.IntegerField(verbose_name='Век создания') 
-    collection = models.ForeignKey('self' ,on_delete=models.CASCADE, verbose_name='Коллекция') 
+    collection = models.ForeignKey(Collection ,on_delete=models.CASCADE, verbose_name='Коллекция') 
     height = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Высота') 
     width = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Ширина') 
     length = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Длина') 
