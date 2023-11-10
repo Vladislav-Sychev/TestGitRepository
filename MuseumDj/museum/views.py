@@ -8,5 +8,5 @@ def index(request):
     halls = Hall.objects.all() 
     collections = Collection.objects.all() 
     exhibits = Exhibit.objects.all() 
-    context = { 'halls': halls, 'collections': collections, 'exhibits': exhibits, } 
+    context = { 'Зал': halls, 'Коллекция': collections, 'Экспонаты': exhibits, } 
     return render(request, "museum/index.html", context)
