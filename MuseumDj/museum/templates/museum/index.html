@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+	{% bootstrap_javascript %}
+	{% bootstrap_css %}
+
+{% block content %}
+<h1>Музей</h1>
+<h2>Список экспонатов</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Страховая стоимость</th>
+            <th>Век создания</th>
+            <th>Коллекция</th>
+            <th>Габаритные размеры</th>
+            <th>Условия содержания</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for exhibit in exhibits %}
+        <tr>
+            <td>{{ exhibit.name }}</td>
+            <td>{{ exhibit.description }}</td>
+            <td>{{ exhibit.value }}</td>
+            <td>{{ exhibit.century }}</td>
+            <td>{{ exhibit.collection }}</td>
+            <td>{{ exhibit.height }} x {{ exhibit.width }} x {{ exhibit.length }}</td>
+            <td>
+                {% if exhibit.temperature_control %}
+                Контроль температуры
+                {% endif %}
+                {% if exhibit.humidity_control %}
+                Контроль влажности
+                {% endif %}
+                {% if exhibit.protection %}
+                Защита от людей
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>Перечень коллекций</h2>
+<ul>
+    {% for collection in collections %}
+    <li>
+        <h3>{{ collection.name }}</h3>
+        <p>{{ collection.description }}</p>
+        <p>Зал: {{ collection.hall }}</p>
+        <p>Период показа: {{ collection.start_date }} - {{ collection.end_date }}</p>
+        <p>Список экспонатов:</p>
+        <ul>
+            {% for exhibit in collection.exhibit_set.all %}
+            <li>{{ exhibit.name }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -2,6 +2,7 @@ from typing import Collection
 from django.db import models
 
 # Create your models here.
+
 class Hall(models.Model): 
     name = models.CharField(max_length=100, verbose_name='Название')
 
@@ -12,7 +13,7 @@ class Meta:
     verbose_name = 'Выставочный зал'
     verbose_name_plural = 'Выставочные залы'
 
-    class Collection(models.Model): 
+class Collection(models.Model): 
         name = models.CharField(max_length=100, verbose_name='Название') 
         description = models.TextField(verbose_name='Краткое описание') 
         hall = models.ForeignKey(Hall, on_delete=models.CASCADE, verbose_name='Зал') 
@@ -21,6 +22,7 @@ class Meta:
 
         def __str__(self):
             return self.name
+
 
 class Meta:
     verbose_name = 'Коллекция'
@@ -32,7 +34,7 @@ class Exhibit(models.Model):
     description = models.TextField(verbose_name='Краткое описание') 
     value = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Страховая стоимость') 
     century = models.IntegerField(verbose_name='Век создания') 
-    collection = models.ForeignKey(Collection ,on_delete=models.CASCADE, verbose_name='Коллекция') 
+    collection = models.ForeignKey('self' ,on_delete=models.CASCADE, verbose_name='Коллекция') 
     height = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Высота') 
     width = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Ширина') 
     length = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Длина') 
@@ -43,6 +45,7 @@ class Exhibit(models.Model):
     def __str__(self):
         return self.name
 
-class _Meta:
+class Meta:
     verbose_name = 'Экспонат'
     verbose_name_plural = 'Экспонаты'
+
