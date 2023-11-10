@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 
@@ -18,6 +19,7 @@ class Bb(models.Model):
 class Rubric(models.Model):
   name = models.CharField(max_length=20, db_index=True,
   verbose_name='Название')
+
   def __str__(self):
     return self.name
   
@@ -25,6 +27,10 @@ class Rubric(models.Model):
     verbose_name_plural = 'Рубрики'
     verbose_name = 'Рубрика'
     ordering = ['name']
+
+
+
+
 
 
 
