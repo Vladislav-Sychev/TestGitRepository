@@ -6,12 +6,12 @@ from django.db import models
 class Hall(models.Model): 
     name = models.CharField(max_length=100, verbose_name='Название')
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
-class Meta:
-    verbose_name = 'Выставочный зал'
-    verbose_name_plural = 'Выставочные залы'
+    class Meta:
+        verbose_name = 'Выставочный зал'
+        verbose_name_plural = 'Выставочные залы'
 
 class Collection(models.Model): 
         name = models.CharField(max_length=100, verbose_name='Название') 
@@ -24,9 +24,9 @@ class Collection(models.Model):
             return self.name
 
 
-class Meta:
-    verbose_name = 'Коллекция'
-    verbose_name_plural = 'Коллекции'
+        class Meta:
+            verbose_name = 'Коллекция'
+            verbose_name_plural = 'Коллекции'
 
 
 class Exhibit(models.Model): 
@@ -45,7 +45,7 @@ class Exhibit(models.Model):
     def __str__(self):
         return self.name
 
-class Meta:
-    verbose_name = 'Экспонат'
-    verbose_name_plural = 'Экспонаты'
+    class Meta:
+        verbose_name = 'Экспонат'
+        verbose_name_plural = 'Экспонаты'
 
