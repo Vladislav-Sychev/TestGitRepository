@@ -49,3 +49,4 @@ class Exhibit(models.Model):
         verbose_name = 'Экспонат'
         verbose_name_plural = 'Экспонаты'
 
+        
