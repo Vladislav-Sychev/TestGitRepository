@@ -1,8 +1,8 @@
-from django.shortcuts import render
+
 
 # Create your views here.
 from django.shortcuts import render 
-from .models import Hall, Collection, Exhibit
+from .models import *
 
 def index(request): 
     halls = Hall.objects.all() 

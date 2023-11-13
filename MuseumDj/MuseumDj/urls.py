@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('museum/', include('museum.urls'))
+    
 ]
 
